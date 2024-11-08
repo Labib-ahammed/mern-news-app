@@ -11,7 +11,7 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: ["http://localhost:5173", "http://localhost:5174"],
+    origin: ["http://localhost:5173", "http://localhost:5174", "https://newsnacterbackend.vercel.app", "https://newsnacter.vercel.app", "https://newsnacteradmin.vercel.app"],
     methods: "GET, POST, PUT, DELETE",
     credentials: true,
   })
