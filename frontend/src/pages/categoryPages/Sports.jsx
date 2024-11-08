@@ -1,7 +1,7 @@
 import { Pagination, Card } from "flowbite-react";
 import React, { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom"; // Make sure Link is imported
-
+import { Helmet } from "react-helmet";
 const Sports = () => {
   const backend_url = import.meta.env.VITE_BACKEND_URL;
   const navigate = useNavigate();
@@ -56,6 +56,14 @@ const Sports = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Sports - NewsNacter</title>
+        <meta
+          name="description"
+          content="Get the latest sports news, scores, and highlights from around the world. Covering everything from cricket and football to tennis and basketball, our comperhensive coverage keeps you updated on major events."
+        />
+        <meta name="keywords" content="news, latest news, breaking news, headlines, current events, world news, local news, national news, international news, politics, economy, sports, entertainment, technology, health, environment, science, business, education, lifestyle" />
+      </Helmet>
       <h1 className="text-center my-5 text-2xl font-medium">Sports</h1>
       {/* Render search results */}
       <div className="p-4 md:flex md:flex-wrap md:gap-4 lg:justify-center">

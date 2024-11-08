@@ -1,7 +1,7 @@
 import { Pagination, Card } from "flowbite-react";
 import React, { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom"; // Make sure Link is imported
-
+import { Helmet } from "react-helmet";
 const Technology = () => {
   const backend_url = import.meta.env.VITE_BACKEND_URL;
   const navigate = useNavigate();
@@ -56,6 +56,14 @@ const Technology = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Technology - NewsNacter</title>
+        <meta
+          name="description"
+          content="Discover the latest in technology with our up-to-date articles on innovations, gadgets, software, and industry trends. Stay informed about breakthroughs and how they impact our lives, from AI advancements to the newest devices."
+        />
+        <meta name="keywords" content="news, latest news, breaking news, headlines, current events, world news, local news, national news, international news, politics, economy, sports, entertainment, technology, health, environment, science, business, education, lifestyle" />
+      </Helmet>
       <h1 className="text-center my-5 text-2xl font-medium">Technology</h1>
       {/* Render search results */}
       <div className="p-4 md:flex md:flex-wrap md:gap-4 lg:justify-center">

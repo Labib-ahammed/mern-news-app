@@ -15,7 +15,7 @@ const Manage = () => {
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const res = await fetch(`${backend_url}/news/getnews?order=desc&limit=500`);
+        const res = await fetch(`${backend_url}/news/getnews?order=desc&limit=100000`);
         if (!res.ok) {
           throw new Error(`HTTP error! status: ${res.status}`);
         }

@@ -1,7 +1,7 @@
 import { Pagination, Card } from "flowbite-react";
 import React, { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom"; // Make sure Link is imported
-
+import { Helmet } from "react-helmet";
 const Politics = () => {
   const backend_url = import.meta.env.VITE_BACKEND_URL;
   const navigate = useNavigate();
@@ -56,6 +56,14 @@ const Politics = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Politics - NewsNacter</title>
+        <meta
+          name="description"
+          content="Explore the latest developments in politics with our in-depth articles and analysis. Stay updated on key issues, election coverage, policy changes, and expert opinions that shape our world. Join the conversation and understand the forces driving today's political landscape."
+        />
+        <meta name="keywords" content="news, latest news, breaking news, headlines, current events, world news, local news, national news, international news, politics, economy, sports, entertainment, technology, health, environment, science, business, education, lifestyle" />
+      </Helmet>
       <h1 className="text-center my-5 text-2xl font-medium">Politics</h1>
       {/* Render search results */}
       <div className="p-4 md:flex md:flex-wrap md:gap-4 lg:justify-center">

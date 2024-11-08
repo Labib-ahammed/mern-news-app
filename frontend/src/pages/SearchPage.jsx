@@ -1,7 +1,7 @@
 import { Card, Pagination } from "flowbite-react";
 import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-
+import { Helmet } from "react-helmet";
 const SearchPage = () => {
   const backend_url = import.meta.env.VITE_BACKEND_URL;
 
@@ -62,6 +62,14 @@ const SearchPage = () => {
 
   return (
     <div className="min-h-screen mb-16 lg:text-center">
+      <Helmet>
+        <title>Search - NewsNacter</title>
+        <meta
+          name="description"
+          content="Discover the news you're looking for with our powerful search feature. Explore articles, reports, and updates across various categories, including politics, technology, health, and entertainment. Find the latest stories and insights quickly and easily."
+        />
+        <meta name="keywords" content="news, latest news, breaking news, headlines, current events, world news, local news, national news, international news, politics, economy, sports, entertainment, technology, health, environment, science, business, education, lifestyle" />
+      </Helmet>
       <h1 className="text-2xl text-center font-semibold my-5">
         Search Results
       </h1>
