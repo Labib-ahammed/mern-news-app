@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Button, Textarea } from "flowbite-react";
 
 const CommentSection = ({ postId }) => {
-  const backend_url = import.meta.env.VITE_BACKEND_URL;
 
   const [comment, setComment] = useState("");
   const [comments, setComments] = useState([]);
@@ -14,7 +13,7 @@ const CommentSection = ({ postId }) => {
       return;
     }
     try {
-      const res = await fetch(`${backend_url}/comment/create`, {
+      const res = await fetch(`https://newsnacterbackend.vercel.app/api/v1/comment/create`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -37,7 +36,7 @@ const CommentSection = ({ postId }) => {
   useEffect(() => {
     const getComments = async () => {
       try {
-        const res = await fetch(`${backend_url}/comment/getcomment/${postId}`);
+        const res = await fetch(`https://newsnacterbackend.vercel.app/api/v1/comment/getcomment/${postId}`);
         if (res.ok) {
           const data = await res.json();
           setComments(data);

@@ -5,12 +5,12 @@ import { Link, useNavigate } from "react-router-dom";
 import PopularNews from "./PopularNews";
 const RecentNews = () => {
   const navigate = useNavigate();
-  const backend_url = import.meta.env.VITE_BACKEND_URL;
+
   const [news, setNews] = useState([]);
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const res = await fetch(`${backend_url}/news/getnews?order=desc`);
+        const res = await fetch(`https://newsnacterbackend.vercel.app/api/v1/news/getnews?order=desc`);
         if (!res.ok) {
           console.log(
             res.status,
@@ -32,7 +32,7 @@ const RecentNews = () => {
 
   const handlePostClick = async (postId, slug) => {
     try {
-      const res = await fetch(`${backend_url}/news/view/${postId}`, {
+      const res = await fetch(`https://newsnacterbackend.vercel.app/api/v1/news/view/${postId}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

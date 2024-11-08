@@ -10,12 +10,12 @@ const Manage = () => {
   const [postIdToDelete, setPostIdToDelete] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 9; // Adjust this number as needed
-  const backend_url = import.meta.env.VITE_BACKEND_URL;
+
 
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const res = await fetch(`${backend_url}/news/getnews?order=desc&limit=100000`);
+        const res = await fetch(`https://newsnacterbackend.vercel.app/api/v1/news/getnews?order=desc&limit=100000`);
         if (!res.ok) {
           throw new Error(`HTTP error! status: ${res.status}`);
         }
@@ -32,7 +32,7 @@ const Manage = () => {
     setShowModal(false);
     try {
       const res = await fetch(
-        `${backend_url}/news/deletenews/${postIdToDelete}`,
+        `https://newsnacterbackend.vercel.app/api/v1/news/deletenews/${postIdToDelete}`,
         {
           method: "DELETE",
           headers: {

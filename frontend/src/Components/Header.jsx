@@ -5,7 +5,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 import HeadLine from "./HeadLine";
 const Header = () => {
-  const backend_url = import.meta.env.VITE_BACKEND_URL;
+
   const navigate = useNavigate();
   const location = useLocation();
   const pathname = location.pathname;

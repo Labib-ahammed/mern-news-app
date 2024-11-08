@@ -29,7 +29,7 @@ const UpdatePost = () => {
   const [formData, setFormData] = useState({ content: "" });
   const { postId } = useParams();
 
-  const backend_url = import.meta.env.VITE_BACKEND_URL;
+
 
   const config = useMemo(
     () => ({
@@ -54,7 +54,7 @@ const UpdatePost = () => {
   useEffect(() => {
     const fetchPostData = async () => {
       try {
-        const res = await fetch(`${backend_url}/news/getnews?postId=${postId}`);
+        const res = await fetch(`https://newsnacterbackend.vercel.app/api/v1/news/getnews?postId=${postId}`);
         if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
         const data = await res.json();
         setTitle(data[0].title);
@@ -110,7 +110,7 @@ const UpdatePost = () => {
 
     try {
       setLoading(true);
-      const res = await fetch(`${backend_url}/news/updatenews/${postId}`, {
+      const res = await fetch(`https://newsnacterbackend.vercel.app/api/v1/news/updatenews/${postId}`, {
         method: "PUT", // Change to PUT for updating
         headers: {
           "Content-Type": "application/json",

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom"; // Make sure Link is imported
 import { Helmet } from "react-helmet";
 const Business = () => {
-  const backend_url = import.meta.env.VITE_BACKEND_URL;
+  const backend_url = "https://newsnacterbackend.vercel.app/api/v1";
   const navigate = useNavigate();
   const [business, setBusiness] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
@@ -25,7 +25,7 @@ const Business = () => {
     const fetchEducation = async () => {
       try {
         const response = await fetch(
-          `${backend_url}/news/getnews?category=business&limit=10000`
+          `https://newsnacterbackend.vercel.app/api/v1/news/getnews?category=business&limit=10000`
         );
         const data = await response.json();
         setBusiness(data);
@@ -39,7 +39,7 @@ const Business = () => {
 
   const handlePostClick = async (postId, slug) => {
     try {
-      const res = await fetch(`${backend_url}/news/view/${postId}`, {
+      const res = await fetch(`https://newsnacterbackend.vercel.app/api/v1/news/view/${postId}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

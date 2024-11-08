@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import CommentSection from "../Components/CommentSection";
 import { Helmet } from "react-helmet";
 const NewsPage = () => {
-  const backend_url = import.meta.env.VITE_BACKEND_URL;
 
   const { slug } = useParams();
 
@@ -13,7 +12,7 @@ const NewsPage = () => {
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const res = await fetch(`${backend_url}/news/getnews?slug=${slug}`);
+        const res = await fetch(`https://newsnacterbackend.vercel.app/api/v1/news/getnews?slug=${slug}`);
         if (!res.ok) {
           console.log("response error", res.status, res.statusText);
         }

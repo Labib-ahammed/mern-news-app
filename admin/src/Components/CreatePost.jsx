@@ -28,7 +28,7 @@ const CreatePost = () => {
   const [author, setAuthor] = useState("");
   const [category, setCategory] = useState("");
   const [formData, setFormData] = useState({ content: "" });
-  const backend_url = import.meta.env.VITE_BACKEND_URL;
+ 
   const config = useMemo(
     () => ({
       placeholder: "Start typing...",
@@ -86,7 +86,7 @@ const CreatePost = () => {
 
     try {
       setLoading(true);
-      const res = await fetch(`${backend_url}/news/postnews`, {
+      const res = await fetch(`https://newsnacterbackend.vercel.app/api/v1/news/postnews`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

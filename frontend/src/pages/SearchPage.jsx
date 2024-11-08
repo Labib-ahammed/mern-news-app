@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
 const SearchPage = () => {
-  const backend_url = import.meta.env.VITE_BACKEND_URL;
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -29,7 +28,7 @@ const SearchPage = () => {
     }
     try {
       const res = await fetch(
-        `${backend_url}/news/getnews?searchTerm=${searchTerm}&limit=500`
+        `https://newsnacterbackend.vercel.app/api/v1/news/getnews?searchTerm=${searchTerm}&limit=500`
       );
       if (!res.ok) {
         console.log("response error", res.status, res.statusText);
@@ -42,7 +41,7 @@ const SearchPage = () => {
   };
   const handlePostClick = async (postId, slug) => {
     try {
-      const res = await fetch(`${backend_url}/news/view/${postId}`, {
+      const res = await fetch(`https://newsnacterbackend.vercel.app/api/v1/news/view/${postId}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

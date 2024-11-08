@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 const NewsSlider = () => {
-  const backend_url = import.meta.env.VITE_BACKEND_URL;
+
   const navigate = useNavigate();
 
   const [newsSlider, setNewsSlider] = useState([]);
@@ -14,7 +14,7 @@ const NewsSlider = () => {
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const res = await fetch(`${backend_url}/news/getnews?order=desc`);
+        const res = await fetch(`https://newsnacterbackend.vercel.app/api/v1/news/getnews?order=desc`);
         if (!res.ok) {
           console.log(res.status, res.message);
           return;
@@ -44,7 +44,7 @@ const NewsSlider = () => {
 
   const handlePostClick = async (postId, slug) => {
     try {
-      const res = await fetch(`${backend_url}/news/view/${postId}`, {
+      const res = await fetch(`https://newsnacterbackend.vercel.app/api/v1/news/view/${postId}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -95,7 +95,10 @@ const NewsSlider = () => {
                     }
                   />
                 </p>
-                <p onClick={() => handlePostClick(item._id, item.slug)} className="cursor-pointer">
+                <p
+                  onClick={() => handlePostClick(item._id, item.slug)}
+                  className="cursor-pointer"
+                >
                   <h3 className="absolute bottom-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-fit  bg-custom-black text-white p-3 rounded-md font-medium">
                     {item.title.charAt(0).toUpperCase() + item.title.slice(1)}
                   </h3>

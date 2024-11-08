@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 const TopCategoryNews = () => {
-  const backend_url = import.meta.env.VITE_BACKEND_URL;
   const navigate = useNavigate();
   const [politics, setPolitics] = useState([]);
   const [business, setBusiness] = useState([]);
@@ -22,7 +21,7 @@ const TopCategoryNews = () => {
     const fetchPolitics = async () => {
       try {
         const res = await fetch(
-          `${backend_url}/news/getnews?limit=3&category=politics`
+          `https://newsnacterbackend.vercel.app/api/v1/news/getnews?limit=3&category=politics`
         );
         if (!res.ok) {
           console.log("Error while fetching politics news");
@@ -37,7 +36,7 @@ const TopCategoryNews = () => {
     const fetchBusiness = async () => {
       try {
         const res = await fetch(
-          `${backend_url}/news/getnews?limit=3&category=business`
+          `https://newsnacterbackend.vercel.app/api/v1/news/getnews?limit=3&category=business`
         );
         if (!res.ok) {
           console.log("Error while fetching business news");
@@ -51,7 +50,7 @@ const TopCategoryNews = () => {
     const fetchTechnology = async () => {
       try {
         const res = await fetch(
-          `${backend_url}/news/getnews?limit=3&category=technology`
+          `https://newsnacterbackend.vercel.app/api/v1/news/getnews?limit=3&category=technology`
         );
         if (!res.ok) {
           console.log("Error while fetching technology news");
@@ -65,7 +64,7 @@ const TopCategoryNews = () => {
     const fetchSports = async () => {
       try {
         const res = await fetch(
-          `${backend_url}/news/getnews?limit=3&category=sports`
+          `https://newsnacterbackend.vercel.app/api/v1/news/getnews?limit=3&category=sports`
         );
         if (!res.ok) {
           console.log("Error while fetching sports news");
@@ -79,7 +78,7 @@ const TopCategoryNews = () => {
     const fetchEntertainment = async () => {
       try {
         const res = await fetch(
-          `${backend_url}/news/getnews?limit=3&category=entertainment`
+          `https://newsnacterbackend.vercel.app/api/v1/news/getnews?limit=3&category=entertainment`
         );
         if (!res.ok) {
           console.log("Error while fetching sports news");
@@ -93,7 +92,7 @@ const TopCategoryNews = () => {
     const fetchHealth = async () => {
       try {
         const res = await fetch(
-          `${backend_url}/news/getnews?limit=3&category=health`
+          `https://newsnacterbackend.vercel.app/api/v1/news/getnews?limit=3&category=health`
         );
         if (!res.ok) {
           console.log("Error while fetching health news");
@@ -107,7 +106,7 @@ const TopCategoryNews = () => {
     const fetchScience = async () => {
       try {
         const res = await fetch(
-          `${backend_url}/news/getnews?limit=3&category=science`
+          `https://newsnacterbackend.vercel.app/api/v1/news/getnews?limit=3&category=science`
         );
         if (!res.ok) {
           console.log("Error while fetching science news");
@@ -121,7 +120,7 @@ const TopCategoryNews = () => {
     const fetchLifeStyle = async () => {
       try {
         const res = await fetch(
-          `${backend_url}/news/getnews?limit=3&category=lifestyle`
+          `https://newsnacterbackend.vercel.app/api/v1/news/getnews?limit=3&category=lifestyle`
         );
         if (!res.ok) {
           console.log("Error while fetching lifestyle news");
@@ -135,7 +134,7 @@ const TopCategoryNews = () => {
     const fetchEducation = async () => {
       try {
         const res = await fetch(
-          `${backend_url}/news/getnews?limit=3&category=education`
+          `https://newsnacterbackend.vercel.app/api/v1/news/getnews?limit=3&category=education`
         );
         if (!res.ok) {
           console.log("Error while fetching education news");
@@ -149,7 +148,7 @@ const TopCategoryNews = () => {
     const fetchEnvironment = async () => {
       try {
         const res = await fetch(
-          `${backend_url}/news/getnews?limit=3&category=environment`
+          `https://newsnacterbackend.vercel.app/api/v1/news/getnews?limit=3&category=environment`
         );
         if (!res.ok) {
           console.log("Error while fetching environment news");
@@ -174,12 +173,15 @@ const TopCategoryNews = () => {
 
   const handlePostClick = async (postId, slug) => {
     try {
-      const res = await fetch(`${backend_url}/news/view/${postId}`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const res = await fetch(
+        `https://newsnacterbackend.vercel.app/api/v1/news/view/${postId}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
       if (!res.ok) {
         console.log("response error", res.status, res.statusText);
       }

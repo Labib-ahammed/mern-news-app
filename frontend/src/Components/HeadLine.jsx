@@ -3,12 +3,11 @@ import Marquee from "react-fast-marquee";
 import { useNavigate } from "react-router-dom";
 const HeadLine = () => {
   const navigate = useNavigate();
-  const backend_url = import.meta.env.VITE_BACKEND_URL;
   const [headLine, setHeadLine] = useState([]);
   useEffect(() => {
     const fetchHeadLine = async () => {
       try {
-        const res = await fetch(`${backend_url}/news/getnews`);
+        const res = await fetch(`https://newsnacterbackend.vercel.app/api/v1/news/getnews`);
 
         if (!res.ok) {
           console.log(res.status, res.message);
@@ -25,7 +24,7 @@ const HeadLine = () => {
 
   const handlePostClick = async (postId, slug) => {
     try {
-      const res = await fetch(`${backend_url}/news/view/${postId}`, {
+      const res = await fetch(`https://newsnacterbackend.vercel.app/api/v1/news/view/${postId}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

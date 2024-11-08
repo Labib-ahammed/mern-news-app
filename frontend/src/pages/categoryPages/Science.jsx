@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom"; // Make sure Link is imported
 import { Helmet } from "react-helmet";
 const Science = () => {
-  const backend_url = import.meta.env.VITE_BACKEND_URL;
+  const backend_url = "https://newsnacterbackend.vercel.app/api/v1";
   const navigate = useNavigate();
   const [science, setScience] = useState([]);
   const [searchResults, setSearchResults] = useState([]);

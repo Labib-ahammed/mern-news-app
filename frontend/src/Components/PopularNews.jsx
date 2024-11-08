@@ -5,12 +5,12 @@ import HrTag from "./HrTag";
 
 const PopularNews = () => {
   const navigate = useNavigate();
-  const backend_url = import.meta.env.VITE_BACKEND_URL;
+
   const [posts, setPosts] = useState([]);
   useEffect(() => {
     const fetchPopularNews = async () => {
       try {
-        const res = await fetch(`${backend_url}/news/getnews?type=popular`);
+        const res = await fetch(`https://newsnacterbackend.vercel.app/api/v1/news/getnews?type=popular`);
         if (!res.ok) {
           console.log("response is not ok while fetching popular posts");
         }
@@ -25,7 +25,7 @@ const PopularNews = () => {
 
   const handlePostClick = async (postId, slug) => {
     try {
-      const res = await fetch(`${backend_url}/news/view/${postId}`, {
+      const res = await fetch(`https://newsnacterbackend.vercel.app/api/v1/news/view/${postId}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
