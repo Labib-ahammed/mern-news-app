@@ -22,7 +22,7 @@ const App = () => {
       setIsAdmin(true);
       navigate("/create");
     } else {
-      console.log(password, correctPassword);
+
       alert("Access denied: Incorrect password.");
     }
   };

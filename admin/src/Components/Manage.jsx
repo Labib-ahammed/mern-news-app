@@ -116,7 +116,7 @@ const Manage = () => {
           "No news found"
         )}
       </div>
-        {console.log(news.length)}
+
       {/* Pagination Component */}
       {news.length > 0 && (
         <div className="flex justify-center mt-4 mb-20">
